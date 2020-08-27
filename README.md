@@ -1,2 +1,1 @@
-# fitnessAppTutor
-example used for teaching
+# workout-tracker-nosql
