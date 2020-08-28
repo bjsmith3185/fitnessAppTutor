@@ -8,21 +8,21 @@ var Schema = mongoose.Schema;
 var WorkoutSchema = new Schema({
 
     date: {
-        type: String,
+        type: Date,
         trim: true,
-        required: "Type is required"
+        required: "Date is required"
     },
     exercises: [
         {
             type: Schema.Types.ObjectId,
-            ref: "Exercise"
+            ref: "Exercises"
         }
     ]
 
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var Workout = mongoose.model("Workout", WorkoutSchema);
+var Workouts = mongoose.model("Workouts", WorkoutSchema);
 
 // Export the Workout model
-module.exports = Workout;
+module.exports = Workouts;

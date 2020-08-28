@@ -134,3 +134,20 @@ db.Workout.deleteMany({})
     console.error(err);
     process.exit(1);
   });
+
+
+
+
+
+
+
+
+
+  // {
+  //   "type": "resistance",
+  //   "name": "Push Press",
+  //   "duration": 25,
+  //   "weight": 185,
+  //   "reps": 8,
+  //   "sets": 4
+  // }

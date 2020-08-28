@@ -38,7 +38,7 @@ var ExerciseSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var Exercise = mongoose.model("Exercise", ExerciseSchema);
+var Exercises = mongoose.model("Exercises", ExerciseSchema);
 
 // Export the Exercise model
-module.exports = Exercise;
+module.exports = Exercises;
