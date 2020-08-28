@@ -33,7 +33,6 @@ mongoose.connect("mongodb://localhost/workout", { useNewUrlParser: true });
 app.get("/exercises", function (req, res) {
   // Create a new user using req.body
   db.Exercises.findAll()
-    // Exercise.findAll()
     .then(function (dbExercises) {
       // If found successfully, send the the list of exercises to the client
       console.log(dbExercises);
@@ -45,7 +44,7 @@ app.get("/exercises", function (req, res) {
     });
 });
 
-//Route to get workout populated with exercises
+//Route to get workout by ID populated with exercises
 app.get("/workout/:id", function (req, res) {
   var id = req.params.id;
 
@@ -55,12 +54,13 @@ app.get("/workout/:id", function (req, res) {
       if (error) {
         console.log("error " + error);
       }
-      console.log("finished");
+      console.log("workout");
       console.log(doc);
       res.json(doc);
     });
 });
 
+// Route to create a new workout with exercises created on the current date
 app.post("/createworkout", function (req, res) {
   console.log("creating new workout");
   console.log(req.body.type);
@@ -90,7 +90,7 @@ app.post("/createworkout", function (req, res) {
     });
 });
 
-
+// Route to add a new exercise to the exercise collection
 app.post("/exercise/create", function(req,res) {
   console.log("creating a new exercise")
   console.log(req.body)
@@ -109,7 +109,7 @@ app.post("/exercise/create", function(req,res) {
   });
 })
 
-
+// Route to add exercise to an existing workout by workoutId and exerciseId
 app.post("/add/exercise", function(req,res) {
   console.log("adding an exercise to workout")
   console.log("workout id: " + req.body.workoutid)
@@ -140,7 +140,7 @@ app.post("/add/exercise", function(req,res) {
 
 
 
-
+// TEST Routes
 app.post("/test", function (req, res) {
   // return a test string
   console.log("testing");
@@ -181,9 +181,10 @@ app.get("/populate", function (req, res) {
 
   res.json({ message: "added test data to db" });
 });
+
+
+
 // Start the server
 app.listen(PORT, function () {
   console.log("App running on port " + PORT + "!");
-
-  console.log(new Date(new Date().setDate(new Date().getDate() - 2)));
 });
